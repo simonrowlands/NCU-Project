@@ -11,7 +11,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class DogsViewController: UIViewController, UIScrollViewDelegate {
+final class DogsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!

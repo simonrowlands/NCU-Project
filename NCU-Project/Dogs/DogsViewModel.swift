@@ -22,7 +22,7 @@ class DogsViewModel: ViewModelType {
     }
     
     func transform(_ input: DogsViewModel.Input) -> DogsViewModel.Output {
-        let networkRequestResult = NetworkingAPI.getDogsJSON()
+        let networkRequestResult = NetworkingAPI.getDogs()
         return Output(networkRequestResult: networkRequestResult)
     }
 }

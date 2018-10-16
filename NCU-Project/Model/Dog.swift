@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Dog: Decodable {
+struct Dog {
     let breed: String
     let subBreeds: [String]
 }

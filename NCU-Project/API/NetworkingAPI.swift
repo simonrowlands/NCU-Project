@@ -29,7 +29,7 @@ class NetworkingAPI {
         }
     }
     
-    static func getDogsJSON() -> Observable<[Dog]> {
+    static func getDogs() -> Observable<[Dog]> {
  
         return URLSession.shared.rx.json(request: URLRequest(url: URL(string: APIEndpoint.allDogsList.urlString())!))
             .map { anyDict -> [Dog] in

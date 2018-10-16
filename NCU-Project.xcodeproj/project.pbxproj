@@ -12,7 +12,6 @@
 		F413DF482176173D00422B6F /* Dogs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F413DF472176173D00422B6F /* Dogs.storyboard */; };
 		F43F04BF44F6A712481E0BD5 /* Pods_NCU_ProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD522E2A3F3C8771B7153A7 /* Pods_NCU_ProjectUITests.framework */; };
 		F4EFCE7D2174D38400E6E321 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCE7C2174D38400E6E321 /* AppDelegate.swift */; };
-		F4EFCE7F2174D38400E6E321 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCE7E2174D38400E6E321 /* MainTableViewController.swift */; };
 		F4EFCE822174D38400E6E321 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4EFCE802174D38400E6E321 /* Main.storyboard */; };
 		F4EFCE842174D38500E6E321 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4EFCE832174D38500E6E321 /* Assets.xcassets */; };
 		F4EFCE872174D38500E6E321 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4EFCE852174D38500E6E321 /* LaunchScreen.storyboard */; };
@@ -53,7 +52,6 @@
 		F413DF472176173D00422B6F /* Dogs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dogs.storyboard; sourceTree = "<group>"; };
 		F4EFCE792174D38400E6E321 /* NCU-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NCU-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EFCE7C2174D38400E6E321 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F4EFCE7E2174D38400E6E321 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		F4EFCE812174D38400E6E321 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F4EFCE832174D38500E6E321 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4EFCE862174D38500E6E321 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -173,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				F4EFCE802174D38400E6E321 /* Main.storyboard */,
-				F4EFCE7E2174D38400E6E321 /* MainTableViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -486,7 +483,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4EFCE7F2174D38400E6E321 /* MainTableViewController.swift in Sources */,
 				F4EFCECF2175EDF400E6E321 /* DogsViewController.swift in Sources */,
 				F4EFCED02175EDF400E6E321 /* Dog.swift in Sources */,
 				F4EFCEC62175EDEB00E6E321 /* NetworkingAPI.swift in Sources */,
