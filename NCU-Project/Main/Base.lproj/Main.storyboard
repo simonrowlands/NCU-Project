@@ -78,20 +78,6 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f0T-Cg-UTW" id="VcN-kO-Lfh">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCp-sk-O4h">
-                                            <rect key="frame" x="24" y="19" width="327" height="6"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="GCp-sk-O4h" secondAttribute="trailing" constant="8" id="HyO-Mj-HMC"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="GCp-sk-O4h" secondAttribute="bottom" constant="8" id="W8w-g5-dQQ"/>
-                                        <constraint firstItem="GCp-sk-O4h" firstAttribute="leading" secondItem="VcN-kO-Lfh" secondAttribute="leadingMargin" constant="8" id="jYd-6R-NFW"/>
-                                        <constraint firstItem="GCp-sk-O4h" firstAttribute="top" secondItem="VcN-kO-Lfh" secondAttribute="topMargin" constant="8" id="kBq-rG-rjz"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>

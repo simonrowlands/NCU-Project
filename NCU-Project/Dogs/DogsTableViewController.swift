@@ -28,22 +28,18 @@ class DogsTableViewController: UITableViewController {
     
     private func bindViewModel() {
         
+        tableView.dataSource = nil // Required as dataSource is being replaced
+        
         let input = DogsViewModel.Input(filterString: searchBar.rx.text.asObservable())
         
         let output = viewModel.transform(input)
         
         output.networkRequestResult
-            .subscribe(onNext: { json in
-                // import data into tableView
-            })
+            .bind(to: tableView.rx.items(cellIdentifier: "dogCell", cellType: UITableViewCell.self)) { row, dog, cell in
+                cell.textLabel?.text = dog.breed
+            }
             .disposed(by: disposeBag)
         
-        
-        // Bind searchBar.rx.text to tableView data
-        
-        tableView.dataSource = nil // Required as dataSource is being replaced
-        
-        // TODO: Bind tableView to data
         // TODO: Bind searchBar to data
     }
 }
