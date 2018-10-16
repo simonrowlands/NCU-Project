@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2244E79B17E6C094E65BAD7D /* Pods_NCU_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CDCC2F713DBE25E34AC18D1 /* Pods_NCU_Project.framework */; };
 		669D5911FEAB763F76BFCB87 /* Pods_NCU_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99C04460FC751D3FE0A9504 /* Pods_NCU_ProjectTests.framework */; };
+		F413DF482176173D00422B6F /* Dogs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F413DF472176173D00422B6F /* Dogs.storyboard */; };
 		F43F04BF44F6A712481E0BD5 /* Pods_NCU_ProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD522E2A3F3C8771B7153A7 /* Pods_NCU_ProjectUITests.framework */; };
 		F4EFCE7D2174D38400E6E321 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCE7C2174D38400E6E321 /* AppDelegate.swift */; };
 		F4EFCE7F2174D38400E6E321 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCE7E2174D38400E6E321 /* MainTableViewController.swift */; };
@@ -17,9 +18,9 @@
 		F4EFCE872174D38500E6E321 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4EFCE852174D38500E6E321 /* LaunchScreen.storyboard */; };
 		F4EFCE922174D38500E6E321 /* NCU_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCE912174D38500E6E321 /* NCU_ProjectTests.swift */; };
 		F4EFCE9D2174D38500E6E321 /* NCU_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCE9C2174D38500E6E321 /* NCU_ProjectUITests.swift */; };
-		F4EFCEC62175EDEB00E6E321 /* APIRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCEC52175EDEA00E6E321 /* APIRequests.swift */; };
+		F4EFCEC62175EDEB00E6E321 /* NetworkingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCEC52175EDEA00E6E321 /* NetworkingAPI.swift */; };
 		F4EFCECE2175EDF400E6E321 /* DogsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCEC82175EDF400E6E321 /* DogsViewModel.swift */; };
-		F4EFCECF2175EDF400E6E321 /* DogsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCEC92175EDF400E6E321 /* DogsTableViewController.swift */; };
+		F4EFCECF2175EDF400E6E321 /* DogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCEC92175EDF400E6E321 /* DogsViewController.swift */; };
 		F4EFCED02175EDF400E6E321 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCECB2175EDF400E6E321 /* Dog.swift */; };
 		F4EFCED12175EDF400E6E321 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCECD2175EDF400E6E321 /* ViewModelType.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		E99C04460FC751D3FE0A9504 /* Pods_NCU_ProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NCU_ProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1C6695D1A76CAB0A60BFC7 /* Pods-NCU-ProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCU-ProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NCU-ProjectUITests/Pods-NCU-ProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F2C646443E5019C0F29D3672 /* Pods-NCU-ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCU-ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NCU-ProjectTests/Pods-NCU-ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		F413DF472176173D00422B6F /* Dogs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dogs.storyboard; sourceTree = "<group>"; };
 		F4EFCE792174D38400E6E321 /* NCU-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NCU-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EFCE7C2174D38400E6E321 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4EFCE7E2174D38400E6E321 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
@@ -62,9 +64,9 @@
 		F4EFCE982174D38500E6E321 /* NCU-ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NCU-ProjectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EFCE9C2174D38500E6E321 /* NCU_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCU_ProjectUITests.swift; sourceTree = "<group>"; };
 		F4EFCE9E2174D38500E6E321 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F4EFCEC52175EDEA00E6E321 /* APIRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequests.swift; sourceTree = "<group>"; };
+		F4EFCEC52175EDEA00E6E321 /* NetworkingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingAPI.swift; sourceTree = "<group>"; };
 		F4EFCEC82175EDF400E6E321 /* DogsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogsViewModel.swift; sourceTree = "<group>"; };
-		F4EFCEC92175EDF400E6E321 /* DogsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogsTableViewController.swift; sourceTree = "<group>"; };
+		F4EFCEC92175EDF400E6E321 /* DogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogsViewController.swift; sourceTree = "<group>"; };
 		F4EFCECB2175EDF400E6E321 /* Dog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		F4EFCECD2175EDF400E6E321 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		F638A087395153926F4A05E8 /* Pods-NCU-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCU-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-NCU-Project/Pods-NCU-Project.release.xcconfig"; sourceTree = "<group>"; };
@@ -196,7 +198,7 @@
 		F4EFCEC42175EDEA00E6E321 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				F4EFCEC52175EDEA00E6E321 /* APIRequests.swift */,
+				F4EFCEC52175EDEA00E6E321 /* NetworkingAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -204,8 +206,9 @@
 		F4EFCEC72175EDF400E6E321 /* Dogs */ = {
 			isa = PBXGroup;
 			children = (
+				F413DF472176173D00422B6F /* Dogs.storyboard */,
 				F4EFCEC82175EDF400E6E321 /* DogsViewModel.swift */,
-				F4EFCEC92175EDF400E6E321 /* DogsTableViewController.swift */,
+				F4EFCEC92175EDF400E6E321 /* DogsViewController.swift */,
 			);
 			path = Dogs;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				F4EFCE762174D38400E6E321 /* Frameworks */,
 				F4EFCE772174D38400E6E321 /* Resources */,
 				BF559FDB0720254300B722D6 /* [CP] Embed Pods Frameworks */,
+				F413DF4921761C0600422B6F /* TODO's */,
 			);
 			buildRules = (
 			);
@@ -347,6 +351,7 @@
 				F4EFCE872174D38500E6E321 /* LaunchScreen.storyboard in Resources */,
 				F4EFCE842174D38500E6E321 /* Assets.xcassets in Resources */,
 				F4EFCE822174D38400E6E321 /* Main.storyboard in Resources */,
+				F413DF482176173D00422B6F /* Dogs.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +440,7 @@
 		};
 		BF559FDB0720254300B722D6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -455,7 +460,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NCU-Project/Pods-NCU-Project-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+		};
+		F413DF4921761C0600422B6F /* TODO's */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "TODO's";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:|WARNING:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"| perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -465,9 +487,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4EFCE7F2174D38400E6E321 /* MainTableViewController.swift in Sources */,
-				F4EFCECF2175EDF400E6E321 /* DogsTableViewController.swift in Sources */,
+				F4EFCECF2175EDF400E6E321 /* DogsViewController.swift in Sources */,
 				F4EFCED02175EDF400E6E321 /* Dog.swift in Sources */,
-				F4EFCEC62175EDEB00E6E321 /* APIRequests.swift in Sources */,
+				F4EFCEC62175EDEB00E6E321 /* NetworkingAPI.swift in Sources */,
 				F4EFCE7D2174D38400E6E321 /* AppDelegate.swift in Sources */,
 				F4EFCECE2175EDF400E6E321 /* DogsViewModel.swift in Sources */,
 				F4EFCED12175EDF400E6E321 /* ViewModelType.swift in Sources */,

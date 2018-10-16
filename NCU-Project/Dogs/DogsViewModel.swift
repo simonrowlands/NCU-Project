@@ -14,7 +14,7 @@ import RxCocoa
 class DogsViewModel: ViewModelType {
     
     struct Input {
-        let filterString: Observable<String?>
+        let filterString: Observable<String?> // TODO: Remove this or filter dog results with it
     }
     
     struct Output {
@@ -22,23 +22,7 @@ class DogsViewModel: ViewModelType {
     }
     
     func transform(_ input: DogsViewModel.Input) -> DogsViewModel.Output {
-        
-        let networkRequestResult = input.filterString
-            .flatMap { _ in
-                APIRequests.shared.getDogsJSON()
-            }
-            .map { anyDict -> [Dog] in
-                
-                guard let messageDict = anyDict as? [String : Any], let dict = messageDict["message"] as? [String : [String]] else {
-                    debugPrint("Failed to read the very convoluted JSON") // TODO: Sort out the weird JSON dict response
-                    return []
-                }
-                
-                return dict.map({ key, value -> Dog in
-                    return Dog(breed: key, subBreeds: value)
-                })
-            }
-        
+        let networkRequestResult = NetworkingAPI.getDogsJSON()
         return Output(networkRequestResult: networkRequestResult)
     }
 }

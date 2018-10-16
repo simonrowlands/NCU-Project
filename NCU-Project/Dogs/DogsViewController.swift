@@ -11,8 +11,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class DogsTableViewController: UITableViewController {
+final class DogsViewController: UIViewController, UIScrollViewDelegate {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     let viewModel = DogsViewModel()
@@ -22,7 +23,6 @@ class DogsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let dogsJSON = viewModel.transform(DogsViewModel.Input(filterString: ""))
         bindViewModel()
     }
     
