@@ -18,7 +18,7 @@ class DogsViewModel: ViewModelType {
     }
     
     struct Output {
-        let networkRequestResult: Observable<[String : [String : [String]]]>
+        let networkRequestResult: Observable<[Dog]>
     }
     
     func transform(_ input: DogsViewModel.Input) -> DogsViewModel.Output {
@@ -27,14 +27,23 @@ class DogsViewModel: ViewModelType {
             .flatMap { _ in
                 APIRequests.shared.getDogsJSON()
             }
-            .map { anyDict -> [String : [String : [String]]] in
+            .map { anyDict -> [Dog] in
                 
-                guard let dict = anyDict as? [String : [String : [String]]] else {
+                guard let messageDict = anyDict as? [String : Any], let dict = messageDict["message"] as? [String : [String]] else {
                     debugPrint("Failed to read the very convoluted JSON") // TODO: Sort out the weird JSON dict response
-                    return [:]
+                    return []
                 }
                 
-                return dict
+                return dict.map({ key, value -> Dog in
+                    return Dog(breed: key, subBreeds: value)
+                })
+                
+//                for item in dict {
+//                    let dog = Dog(breed: item.key, subBreeds: item.value)
+//
+//                }
+//
+//                return []
             }
         
         return Output(networkRequestResult: networkRequestResult)

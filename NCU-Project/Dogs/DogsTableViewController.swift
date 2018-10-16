@@ -23,7 +23,7 @@ class DogsTableViewController: UITableViewController {
         super.viewDidLoad()
         
 //        let dogsJSON = viewModel.transform(DogsViewModel.Input(filterString: ""))
-        
+        bindViewModel()
     }
     
     private func bindViewModel() {
