@@ -37,13 +37,6 @@ class DogsViewModel: ViewModelType {
                 return dict.map({ key, value -> Dog in
                     return Dog(breed: key, subBreeds: value)
                 })
-                
-//                for item in dict {
-//                    let dog = Dog(breed: item.key, subBreeds: item.value)
-//
-//                }
-//
-//                return []
             }
         
         return Output(networkRequestResult: networkRequestResult)

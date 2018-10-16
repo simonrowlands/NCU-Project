@@ -18,6 +18,6 @@ class APIRequests {
     let dogsAPIString = "https://dog.ceo/api/breeds/list/all"
     
     func getDogsJSON() -> Observable<Any> {
-        return URLSession.shared.rx.json(request: URLRequest(url: URL(string: dogsAPIString)!))
+        return URLSession.shared.rx.json(request: URLRequest(url: URL(string: dogsAPIString)!)) // TODO: Add to core data to prevent multiple requests
     }
 }
