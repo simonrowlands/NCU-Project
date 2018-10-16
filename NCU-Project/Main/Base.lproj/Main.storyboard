@@ -61,14 +61,19 @@
         <!--Dogs-->
         <scene sceneID="dKq-bG-dEg">
             <objects>
-                <tableViewController title="Dogs" id="wRY-r4-YT2" sceneMemberID="viewController">
+                <tableViewController title="Dogs" id="wRY-r4-YT2" customClass="DogsTableViewController" customModule="NCU_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NXw-ta-dGU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="8pg-6B-kzS">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dogCell" id="f0T-Cg-UTW">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f0T-Cg-UTW" id="VcN-kO-Lfh">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -95,6 +100,9 @@
                             <outlet property="delegate" destination="wRY-r4-YT2" id="Hdb-36-7dT"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="searchBar" destination="8pg-6B-kzS" id="f8p-SK-XD0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kqe-ns-jB6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
