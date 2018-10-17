@@ -45,7 +45,13 @@ final class DogsViewController: UIViewController {
         }
         
         filteredDogs.subscribe { [weak self] in
-            self?.tableView.reloadData()
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
+            strongSelf.tableView.reloadData()
+            
         }.disposed(by: disposeBag)
         
         filteredDogs.bind(to: tableView.rx.items(cellIdentifier: "dogCell", cellType: UITableViewCell.self)) { row, dog, cell in
