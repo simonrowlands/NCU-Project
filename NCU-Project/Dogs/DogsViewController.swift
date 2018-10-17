@@ -30,16 +30,26 @@ final class DogsViewController: UIViewController {
         
         tableView.dataSource = nil // Required as dataSource is being replaced
         
-        let input = DogsViewModel.Input(filterString: searchBar.rx.text.asObservable())
-        
+        let input = DogsViewModel.Input(filterString: searchBar.text ?? "")
         let output = viewModel.transform(input)
         
-        output.networkRequestResult
-            .bind(to: tableView.rx.items(cellIdentifier: "dogCell", cellType: UITableViewCell.self)) { row, dog, cell in
-                cell.textLabel?.text = dog.breed
+        let filteredDogs = Observable.combineLatest(searchBar.rx.text, output.networkRequestResult) { (filterString, dogs) -> [Dog] in
+            
+            return dogs.filter { dog in
+                
+                if let filterString = filterString, !filterString.isEmpty {
+                    return dog.breed.lowercased().contains(filterString.lowercased())
+                }
+                return true
             }
-            .disposed(by: disposeBag)
+        }
         
-        // TODO: Bind searchBar to data
+        filteredDogs.subscribe { [weak self] in
+            self?.tableView.reloadData()
+        }.disposed(by: disposeBag)
+        
+        filteredDogs.bind(to: tableView.rx.items(cellIdentifier: "dogCell", cellType: UITableViewCell.self)) { row, dog, cell in
+            cell.textLabel?.text = dog.breed
+        }.disposed(by: disposeBag)
     }
 }

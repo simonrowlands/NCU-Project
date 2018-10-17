@@ -14,7 +14,7 @@ import RxCocoa
 class DogsViewModel: ViewModelType {
     
     struct Input {
-        let filterString: Observable<String?> // TODO: Remove this or filter dog results with it
+        let filterString: String
     }
     
     struct Output {
