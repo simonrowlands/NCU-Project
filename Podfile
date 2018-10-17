@@ -8,7 +8,7 @@ target 'NCU-Project' do
   # Pods for NCU-Project
 
  pod 'RxSwift'
- pod 'RxDataSources'
+ pod 'RxCocoa'
  
   target 'NCU-ProjectTests' do
     inherit! :search_paths
