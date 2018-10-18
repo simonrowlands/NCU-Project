@@ -11,10 +11,10 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class DogsViewModel: ViewModelType {
+final class DogsViewModel: ViewModelType {
     
     struct Input {
-        let filterString: Observable<String?> // TODO: Remove this or filter dog results with it
+        let query: Observable<String>
     }
     
     struct Output {
@@ -22,7 +22,25 @@ class DogsViewModel: ViewModelType {
     }
     
     func transform(_ input: DogsViewModel.Input) -> DogsViewModel.Output {
-        let networkRequestResult = NetworkingAPI.getDogs()
-        return Output(networkRequestResult: networkRequestResult)
+        
+        let filteredDogs = input.query
+            .throttle(1, scheduler: MainScheduler.instance) // Only poke request every second max
+            .flatMapLatest { queryText -> Observable<(dogs: [Dog], query: String)> in
+                NetworkingAPI.getDogs().map {
+                    return ($0, queryText)
+                }
+            }
+            .map { response in // Filter response via search query
+                response.dogs.filter { dog in
+                    if !response.query.isEmpty {
+                        return dog.breed.lowercased().contains(response.query.lowercased())
+                    }
+                    return true
+                }.sorted {
+                    $0.breed < $1.breed
+                }
+        }
+        
+        return Output(networkRequestResult: filteredDogs)
     }
 }

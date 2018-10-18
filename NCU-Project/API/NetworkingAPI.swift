@@ -30,7 +30,7 @@ class NetworkingAPI {
     }
     
     static func getDogs() -> Observable<[Dog]> {
- 
+        
         return URLSession.shared.rx.json(request: URLRequest(url: URL(string: APIEndpoint.allDogsList.urlString())!))
             .map { anyDict -> [Dog] in
                 
@@ -45,6 +45,6 @@ class NetworkingAPI {
                 })
             }
         
-        // TODO: Add to core data to prevent multiple requests
+        // TODO: Add to core data to prevent multiple requests?
     }
 }
