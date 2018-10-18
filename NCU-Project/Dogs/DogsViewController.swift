@@ -30,9 +30,7 @@ final class DogsViewController: UIViewController {
         
         tableView.dataSource = nil // Required as dataSource is being replaced
         
-        let searchBarText = searchBar.rx.text.asObservable()
-        
-        let input = DogsViewModel.Input(query: searchBarText)
+        let input = DogsViewModel.Input(query: searchBar.rx.text.asObservable())
         let output = viewModel.transform(input)
         
         output.networkRequestResult
@@ -43,6 +41,6 @@ final class DogsViewController: UIViewController {
         searchBar.rx.searchButtonClicked
             .bind { [weak self] in
                 self?.searchBar.resignFirstResponder()
-        }.disposed(by: disposeBag)
+            }.disposed(by: disposeBag)
     }
 }

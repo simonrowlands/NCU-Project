@@ -45,6 +45,6 @@ class NetworkingAPI {
                 })
             }
         
-        // TODO: Add to core data to prevent multiple requests
+        // TODO: Add to core data to prevent multiple requests?
     }
 }
