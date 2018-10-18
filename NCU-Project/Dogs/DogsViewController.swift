@@ -40,7 +40,7 @@ final class DogsViewController: UIViewController {
                 cell.textLabel?.text = dog.breed
         }.disposed(by: disposeBag)
         
-        searchBar.rx.searchButtonClicked.asObservable()
+        searchBar.rx.searchButtonClicked
             .bind {
                 self.searchBar.resignFirstResponder()
         }.disposed(by: disposeBag)
