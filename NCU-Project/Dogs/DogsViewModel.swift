@@ -14,7 +14,7 @@ import RxCocoa
 final class DogsViewModel: ViewModelType {
     
     struct Input {
-        let query: Observable<String?>
+        let query: Observable<String>
     }
     
     struct Output {
@@ -23,17 +23,20 @@ final class DogsViewModel: ViewModelType {
     
     func transform(_ input: DogsViewModel.Input) -> DogsViewModel.Output {
         
-        let networkRequestResult = NetworkingAPI.getDogs()
-        
-        let filteredDogs = Observable.combineLatest(input.query, networkRequestResult) { (query, dogs) -> [Dog] in
-            
-            return dogs.filter { dog in
-                
-                if let query = query, !query.isEmpty {
-                    return dog.breed.lowercased().contains(query.lowercased())
+        let filteredDogs = input.query
+            .throttle(1, scheduler: MainScheduler.instance) // Only poke request every second max
+            .flatMapLatest { queryText -> Observable<(dogs: [Dog], query: String)> in
+                NetworkingAPI.getDogs().map {
+                    return ($0, queryText)
                 }
-                return true
             }
+            .map { response in // Filter response via search query
+                response.dogs.filter { dog in
+                    if !response.query.isEmpty {
+                        return dog.breed.lowercased().contains(response.query.lowercased())
+                    }
+                    return true
+                }
         }
         
         return Output(networkRequestResult: filteredDogs)

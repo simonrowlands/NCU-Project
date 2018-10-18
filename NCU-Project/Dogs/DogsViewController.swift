@@ -30,7 +30,7 @@ final class DogsViewController: UIViewController {
         
         tableView.dataSource = nil // Required as dataSource is being replaced
         
-        let input = DogsViewModel.Input(query: searchBar.rx.text.asObservable())
+        let input = DogsViewModel.Input(query: searchBar.rx.text.orEmpty.asObservable())
         let output = viewModel.transform(input)
         
         output.networkRequestResult
