@@ -14,7 +14,7 @@ import RxCocoa
 class DogsViewModel: ViewModelType {
     
     struct Input {
-        let filterString: String
+        let query: Observable<String?>
     }
     
     struct Output {
@@ -24,5 +24,19 @@ class DogsViewModel: ViewModelType {
     func transform(_ input: DogsViewModel.Input) -> DogsViewModel.Output {
         let networkRequestResult = NetworkingAPI.getDogs()
         return Output(networkRequestResult: networkRequestResult)
+    }
+    
+    func filterDogs(query: Observable<String?>, dogs: Observable<[Dog]>) -> Observable<[Dog]> {
+        
+        return Observable.combineLatest(query, dogs) { (query, dogs) -> [Dog] in
+            
+            return dogs.filter { dog in
+                
+                if let query = query, !query.isEmpty {
+                    return dog.breed.lowercased().contains(query.lowercased())
+                }
+                return true
+            }
+        }
     }
 }
