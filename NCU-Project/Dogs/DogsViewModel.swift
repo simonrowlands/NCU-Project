@@ -11,7 +11,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class DogsViewModel: ViewModelType {
+final class DogsViewModel: ViewModelType {
     
     struct Input {
         let query: Observable<String?>
@@ -22,14 +22,10 @@ class DogsViewModel: ViewModelType {
     }
     
     func transform(_ input: DogsViewModel.Input) -> DogsViewModel.Output {
-        let networkRequestResult = NetworkingAPI.getDogs()
-        let filteredDogs = filterDogs(query: input.query, dogs: networkRequestResult)
-        return Output(networkRequestResult: filteredDogs)
-    }
-    
-    func filterDogs(query: Observable<String?>, dogs: Observable<[Dog]>) -> Observable<[Dog]> {
         
-        return Observable.combineLatest(query, dogs) { (query, dogs) -> [Dog] in
+        let networkRequestResult = NetworkingAPI.getDogs()
+        
+        let filteredDogs = Observable.combineLatest(input.query, networkRequestResult) { (query, dogs) -> [Dog] in
             
             return dogs.filter { dog in
                 
@@ -39,5 +35,7 @@ class DogsViewModel: ViewModelType {
                 return true
             }
         }
+        
+        return Output(networkRequestResult: filteredDogs)
     }
 }

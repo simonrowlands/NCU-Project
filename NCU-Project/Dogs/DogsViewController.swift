@@ -16,7 +16,7 @@ final class DogsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    let viewModel = DogsViewModel()
+    private let viewModel = DogsViewModel()
     
     private let disposeBag = DisposeBag()
     
@@ -35,10 +35,10 @@ final class DogsViewController: UIViewController {
         let input = DogsViewModel.Input(query: searchBarText)
         let output = viewModel.transform(input)
         
-        viewModel.filterDogs(query: searchBarText, dogs: output.networkRequestResult)
+        output.networkRequestResult
             .bind(to: tableView.rx.items(cellIdentifier: "dogCell", cellType: UITableViewCell.self)) { row, dog, cell in
                 cell.textLabel?.text = dog.breed
-        }.disposed(by: disposeBag)
+            }.disposed(by: disposeBag)
         
         searchBar.rx.searchButtonClicked
             .bind { [weak self] in
