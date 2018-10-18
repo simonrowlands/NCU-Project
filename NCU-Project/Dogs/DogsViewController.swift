@@ -41,8 +41,8 @@ final class DogsViewController: UIViewController {
         }.disposed(by: disposeBag)
         
         searchBar.rx.searchButtonClicked
-            .bind {
-                self.searchBar.resignFirstResponder()
+            .bind { [weak self] in
+                self?.searchBar.resignFirstResponder()
         }.disposed(by: disposeBag)
     }
 }

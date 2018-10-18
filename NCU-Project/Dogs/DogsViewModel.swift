@@ -23,7 +23,8 @@ class DogsViewModel: ViewModelType {
     
     func transform(_ input: DogsViewModel.Input) -> DogsViewModel.Output {
         let networkRequestResult = NetworkingAPI.getDogs()
-        return Output(networkRequestResult: networkRequestResult)
+        let filteredDogs = filterDogs(query: input.query, dogs: networkRequestResult)
+        return Output(networkRequestResult: filteredDogs)
     }
     
     func filterDogs(query: Observable<String?>, dogs: Observable<[Dog]>) -> Observable<[Dog]> {
