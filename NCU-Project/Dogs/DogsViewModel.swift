@@ -36,6 +36,8 @@ final class DogsViewModel: ViewModelType {
                         return dog.breed.lowercased().contains(response.query.lowercased())
                     }
                     return true
+                }.sorted {
+                    $0.breed < $1.breed
                 }
         }
         
