@@ -52,5 +52,9 @@ class UsersViewController: UIViewController {
         output.userPostCount.bind { [weak self] postCount in
             self?.userPostsCountLabel.text = "Post Count: " + String(postCount)
         }.disposed(by: disposeBag)
+        
+        output.isLoading
+            .bind(to: UIApplication.shared.rx.isNetworkActivityIndicatorVisible)
+            .disposed(by: disposeBag)
     }
 }
