@@ -30,13 +30,17 @@ final class DogsViewController: UIViewController {
         
         tableView.dataSource = nil // Required as dataSource is being replaced
         
-        let input = DogsViewModel.Input(query: searchBar.rx.text.orEmpty.asObservable())
+        let input = DogsViewModel.Input(didLoad: rx.viewDidAppear.asObservable(), query: searchBar.rx.text.orEmpty.asObservable())
         let output = viewModel.transform(input)
         
         output.networkRequestResult
             .bind(to: tableView.rx.items(cellIdentifier: "dogCell", cellType: UITableViewCell.self)) { row, dog, cell in
                 cell.textLabel?.text = dog.breed
             }.disposed(by: disposeBag)
+        
+        output.isLoading
+            .bind(to: UIApplication.shared.rx.isNetworkActivityIndicatorVisible)
+            .disposed(by: disposeBag)
         
         searchBar.rx.searchButtonClicked
             .bind { [weak self] in
