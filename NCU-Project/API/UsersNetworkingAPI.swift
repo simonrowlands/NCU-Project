@@ -30,7 +30,7 @@ final class UsersNetworkingAPI: BaseNetworkingAPI {
     
     static func getPosts(for userID: Int) -> Observable<[Post]> {
         
-        let url = BaseURL.createURLComponents(urlString: baseURL.urlString(for: posts), components: ["userId" : String(userID)]) // This is done differently as we're passing in a urlQuery
+        let url = baseURL.createURLComponents(endpoint: posts, components: ["userId" : String(userID)]) // This is done differently as we're passing in a urlQuery
         
         return URLSession.shared.rx.data(request: URLRequest(url: url))
             .map { response -> [Post] in

@@ -23,9 +23,9 @@ final class BaseURL {
         self.baseURL = baseURL
     }
     
-    static func createURLComponents(urlString: String, components: [String : String]) -> URL {
+    func createURLComponents(endpoint: String, components: [String : String]) -> URL {
         
-        var urlComponents = URLComponents(string: urlString)!
+        var urlComponents = URLComponents(string: endpoint)!
         
         var queryItems: [URLQueryItem] = []
         

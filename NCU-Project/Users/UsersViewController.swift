@@ -43,8 +43,6 @@ class UsersViewController: UIViewController {
         output.userID.bind(to: userIDLabel.rx.text).disposed(by: disposeBag)
         output.userPostCount.bind(to: userPostsCountLabel.rx.text).disposed(by: disposeBag)
         
-        output.isLoading
-            .bind(to: UIApplication.shared.rx.isNetworkActivityIndicatorVisible)
-            .disposed(by: disposeBag)
+        output.isLoading.bind(to: UIApplication.shared.rx.isNetworkActivityIndicatorVisible).disposed(by: disposeBag)
     }
 }
