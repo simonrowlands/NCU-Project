@@ -34,24 +34,14 @@ class UsersViewController: UIViewController {
     
     private func bindViewModel() {
         
-        let input = UsersViewModel.Input(postsButtonTap: getPostsButton.rx.tap, userButtonTap: getUserButton.rx.tap)
+        let input = UsersViewModel.Input(postsButtonTap: getPostsButton.rx.tap.asObservable(), userButtonTap: getUserButton.rx.tap.asObservable())
         let output = viewModel.transform(input)
         
-        output.postsCount.bind { [weak self] count in
-            self?.postsCountLabel.text =  "Posts: " + String(count)
-        }.disposed(by: disposeBag)
+        output.postsCount.bind(to: postsCountLabel.rx.text).disposed(by: disposeBag)
+        output.commentsCount.bind(to: commentsCountLabel.rx.text).disposed(by: disposeBag)
         
-        output.commentsCount.bind { [weak self] count in
-            self?.commentsCountLabel.text =  "Comments: " + String(count)
-        }.disposed(by: disposeBag)
-        
-        output.userID.bind { [weak self] userID in
-            self?.userIDLabel.text = "User ID: " + String(userID)
-        }.disposed(by: disposeBag)
-        
-        output.userPostCount.bind { [weak self] postCount in
-            self?.userPostsCountLabel.text = "Post Count: " + String(postCount)
-        }.disposed(by: disposeBag)
+        output.userID.bind(to: userIDLabel.rx.text).disposed(by: disposeBag)
+        output.userPostCount.bind(to: userPostsCountLabel.rx.text).disposed(by: disposeBag)
         
         output.isLoading
             .bind(to: UIApplication.shared.rx.isNetworkActivityIndicatorVisible)

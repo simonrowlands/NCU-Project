@@ -14,15 +14,15 @@ import RxCocoa
 final class UsersViewModel: ViewModelType {
     
     struct Input {
-        let postsButtonTap: ControlEvent<Void>
-        let userButtonTap: ControlEvent<Void>
+        let postsButtonTap: Observable<Void>
+        let userButtonTap: Observable<Void>
     }
     
     struct Output {
-        let postsCount: Observable<Int>
-        let commentsCount: Observable<Int>
-        let userID: Observable<Int>
-        let userPostCount: Observable<Int>
+        let postsCount: Observable<String>
+        let commentsCount: Observable<String>
+        let userID: Observable<String>
+        let userPostCount: Observable<String>
         let isLoading: Observable<Bool>
     }
     
@@ -30,17 +30,19 @@ final class UsersViewModel: ViewModelType {
         
         let activityIndicator = ActivityIndicator()
         
-        let getPostsResponse = input.postsButtonTap.flatMap {
+        let getPostsResponse = input.postsButtonTap.flatMapLatest {
             Observable.zip(UsersNetworkingAPI.getPosts(), UsersNetworkingAPI.getComments())
-                .observeOn(MainScheduler.instance)
                 .trackActivity(activityIndicator)
-        }.share()
+            }
+            .observeOn(MainScheduler.instance)
+            .share()
         
         let getUserResponse = input.userButtonTap.flatMap {
             UsersNetworkingAPI.getRandomUser()
                 .trackActivity(activityIndicator)
-                .observeOn(MainScheduler.instance)
-        }.share()
+            }
+            .observeOn(MainScheduler.instance)
+            .share()
         
         let userPosts = getUserResponse
             .flatMap { user in
@@ -49,10 +51,10 @@ final class UsersViewModel: ViewModelType {
             }
             .observeOn(MainScheduler.instance)
         
-        return Output(postsCount: getPostsResponse.map { return $0.0.count },
-                      commentsCount: getPostsResponse.map { return $0.0.count },
-                      userID: getUserResponse.map { return $0!.id },
-                      userPostCount: userPosts.map { return $0.count },
+        return Output(postsCount: getPostsResponse.map { return "Posts: " + String($0.0.count) },
+                      commentsCount: getPostsResponse.map { return "Comments: " + String($0.0.count) },
+                      userID: getUserResponse.map { return "User ID: " + String($0!.id) },
+                      userPostCount: userPosts.map { return  "Post Count: " + String($0.count) },
                       isLoading: activityIndicator.asObservable())
     }
 }
