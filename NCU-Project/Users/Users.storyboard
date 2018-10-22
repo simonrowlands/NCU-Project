@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k7l-AF-AOK">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Users-->
+        <scene sceneID="Uwe-54-yll">
+            <objects>
+                <viewController title="Users" id="k7l-AF-AOK" customClass="UsersViewController" customModule="NCU_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EpL-xB-yLL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ex-2K-Uau">
+                                <rect key="frame" x="0.0" y="64" width="375" height="132"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Post Count:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xyc-56-ICM">
+                                        <rect key="frame" x="16" y="100" width="102" height="24"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IkM-Rx-h6U">
+                                        <rect key="frame" x="100" y="30" width="175" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="pCK-jG-GK8"/>
+                                        </constraints>
+                                        <state key="normal" title="Get Posts and Comments"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments Count:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XDC-cd-isP">
+                                        <rect key="frame" x="200" y="100" width="159" height="24"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Zip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ye3-Th-LiB">
+                                        <rect key="frame" x="8" y="8" width="19.5" height="16"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="xyc-56-ICM" firstAttribute="top" secondItem="IkM-Rx-h6U" secondAttribute="bottom" constant="30" id="4Kj-iN-oyK"/>
+                                    <constraint firstItem="ye3-Th-LiB" firstAttribute="top" secondItem="3Ex-2K-Uau" secondAttribute="top" constant="8" id="71H-3X-hOb"/>
+                                    <constraint firstAttribute="bottom" secondItem="xyc-56-ICM" secondAttribute="bottom" constant="8" id="Dci-ds-68L"/>
+                                    <constraint firstItem="XDC-cd-isP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xyc-56-ICM" secondAttribute="trailing" constant="20" id="H3J-N9-9j6"/>
+                                    <constraint firstAttribute="bottom" secondItem="XDC-cd-isP" secondAttribute="bottom" constant="8" id="SFT-C4-Qbt"/>
+                                    <constraint firstItem="XDC-cd-isP" firstAttribute="top" secondItem="IkM-Rx-h6U" secondAttribute="bottom" constant="30" id="VPF-xF-wRk"/>
+                                    <constraint firstItem="IkM-Rx-h6U" firstAttribute="top" secondItem="3Ex-2K-Uau" secondAttribute="top" constant="30" id="XtW-9A-a23"/>
+                                    <constraint firstAttribute="trailing" secondItem="XDC-cd-isP" secondAttribute="trailing" constant="16" id="clA-Pj-qWz"/>
+                                    <constraint firstItem="ye3-Th-LiB" firstAttribute="leading" secondItem="3Ex-2K-Uau" secondAttribute="leading" constant="8" id="hCB-DE-DpC"/>
+                                    <constraint firstItem="IkM-Rx-h6U" firstAttribute="centerX" secondItem="3Ex-2K-Uau" secondAttribute="centerX" id="quH-5B-CCA"/>
+                                    <constraint firstItem="xyc-56-ICM" firstAttribute="leading" secondItem="3Ex-2K-Uau" secondAttribute="leading" constant="16" id="yPq-dS-wZZ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yzu-TV-lxA">
+                                <rect key="frame" x="0.0" y="505" width="375" height="132"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Flat Map" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8y7-Da-cHd">
+                                        <rect key="frame" x="8" y="8" width="52.5" height="16"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="User ID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EOI-L6-idL">
+                                        <rect key="frame" x="16" y="100" width="70" height="24"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWj-UB-fLP">
+                                        <rect key="frame" x="86" y="30" width="203" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="iV0-9W-YAG"/>
+                                        </constraints>
+                                        <state key="normal" title="Get User and their Post count"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Count:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F6u-ie-Eiy">
+                                        <rect key="frame" x="257" y="100" width="102" height="24"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="8y7-Da-cHd" firstAttribute="top" secondItem="Yzu-TV-lxA" secondAttribute="top" constant="8" id="7NH-q8-8hA"/>
+                                    <constraint firstItem="8y7-Da-cHd" firstAttribute="leading" secondItem="Yzu-TV-lxA" secondAttribute="leading" constant="8" id="9ko-No-bMo"/>
+                                    <constraint firstAttribute="trailing" secondItem="F6u-ie-Eiy" secondAttribute="trailing" constant="16" id="A04-MO-YPg"/>
+                                    <constraint firstItem="F6u-ie-Eiy" firstAttribute="top" secondItem="bWj-UB-fLP" secondAttribute="bottom" constant="30" id="B0B-G3-6tl"/>
+                                    <constraint firstAttribute="bottom" secondItem="F6u-ie-Eiy" secondAttribute="bottom" constant="8" id="GIn-59-cv3"/>
+                                    <constraint firstItem="EOI-L6-idL" firstAttribute="top" secondItem="bWj-UB-fLP" secondAttribute="bottom" constant="30" id="PGV-3d-rta"/>
+                                    <constraint firstAttribute="bottom" secondItem="EOI-L6-idL" secondAttribute="bottom" constant="8" id="VWe-Zk-8xa"/>
+                                    <constraint firstItem="bWj-UB-fLP" firstAttribute="top" secondItem="Yzu-TV-lxA" secondAttribute="top" constant="30" id="bqb-Pw-Aou"/>
+                                    <constraint firstItem="F6u-ie-Eiy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EOI-L6-idL" secondAttribute="trailing" constant="20" id="plA-Y9-5ma"/>
+                                    <constraint firstItem="EOI-L6-idL" firstAttribute="leading" secondItem="Yzu-TV-lxA" secondAttribute="leading" constant="16" id="qGF-Hi-G2A"/>
+                                    <constraint firstItem="bWj-UB-fLP" firstAttribute="centerX" secondItem="Yzu-TV-lxA" secondAttribute="centerX" id="udU-dQ-hDn"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Yzu-TV-lxA" firstAttribute="leading" secondItem="Ztx-Aa-s32" secondAttribute="leading" id="4aE-DU-kJB"/>
+                            <constraint firstItem="Yzu-TV-lxA" firstAttribute="trailing" secondItem="Ztx-Aa-s32" secondAttribute="trailing" id="Fnd-LF-dPr"/>
+                            <constraint firstItem="Ztx-Aa-s32" firstAttribute="bottom" secondItem="Yzu-TV-lxA" secondAttribute="bottom" constant="30" id="Ko3-f6-Yk3"/>
+                            <constraint firstItem="Ztx-Aa-s32" firstAttribute="trailing" secondItem="3Ex-2K-Uau" secondAttribute="trailing" id="Vpu-fK-yyM"/>
+                            <constraint firstItem="3Ex-2K-Uau" firstAttribute="leading" secondItem="Ztx-Aa-s32" secondAttribute="leading" id="hm9-sy-mbm"/>
+                            <constraint firstItem="3Ex-2K-Uau" firstAttribute="top" secondItem="Ztx-Aa-s32" secondAttribute="top" id="or1-2O-GhU"/>
+                            <constraint firstItem="Yzu-TV-lxA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3Ex-2K-Uau" secondAttribute="bottom" constant="8" symbolic="YES" id="xcH-Jq-BoS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ztx-Aa-s32"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="commentsCountLabel" destination="XDC-cd-isP" id="KxI-5h-88B"/>
+                        <outlet property="getPostsButton" destination="IkM-Rx-h6U" id="r3P-r1-wtb"/>
+                        <outlet property="getUserButton" destination="bWj-UB-fLP" id="wc4-8x-bre"/>
+                        <outlet property="postsCountLabel" destination="xyc-56-ICM" id="HQK-NP-IZR"/>
+                        <outlet property="userIDLabel" destination="EOI-L6-idL" id="kZl-d4-t8X"/>
+                        <outlet property="userPostsCountLabel" destination="F6u-ie-Eiy" id="8aB-zx-KZF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dTm-Fg-o3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="40.799999999999997" y="25.637181409295355"/>
+        </scene>
+    </scenes>
+</document>
