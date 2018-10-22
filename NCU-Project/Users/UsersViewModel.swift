@@ -30,16 +30,18 @@ final class UsersViewModel: ViewModelType {
         
         let activityIndicator = ActivityIndicator()
         
-        let getPostsResponse = input.postsButtonTap.flatMapLatest {
-            Observable.zip(UsersNetworkingAPI.getPosts(), UsersNetworkingAPI.getComments())
-                .trackActivity(activityIndicator)
+        let getPostsResponse = input.postsButtonTap
+            .flatMapLatest {
+                Observable.zip(UsersNetworkingAPI.getPosts(), UsersNetworkingAPI.getComments())
+                    .trackActivity(activityIndicator)
             }
             .observeOn(MainScheduler.instance)
             .share()
         
-        let getUserResponse = input.userButtonTap.flatMap {
-            UsersNetworkingAPI.getRandomUser()
-                .trackActivity(activityIndicator)
+        let getUserResponse = input.userButtonTap
+            .flatMap {
+                UsersNetworkingAPI.getRandomUser()
+                    .trackActivity(activityIndicator)
             }
             .observeOn(MainScheduler.instance)
             .share()

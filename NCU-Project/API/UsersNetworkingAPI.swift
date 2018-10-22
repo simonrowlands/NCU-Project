@@ -30,10 +30,9 @@ final class UsersNetworkingAPI: BaseNetworkingAPI {
     
     static func getPosts(for userID: Int) -> Observable<[Post]> {
         
-        var urlRequest = baseURL.urlRequest(for: posts)
-        urlRequest.addValue("\(userID)", forHTTPHeaderField: "id")
+        let url = BaseURL.createURLComponents(urlString: baseURL.urlString(for: posts), components: ["userId" : String(userID)]) // This is done differently as we're passing in a urlQuery
         
-        return URLSession.shared.rx.data(request: urlRequest)
+        return URLSession.shared.rx.data(request: URLRequest(url: url))
             .map { response -> [Post] in
                 return try JSONDecoder().decode([Post].self, from: response)
         }
