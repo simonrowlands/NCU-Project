@@ -17,7 +17,7 @@ protocol BaseNetworkingAPI {
 
 final class BaseURL {
     
-    var baseURL: String
+    private let baseURL: String
     
     init(_ baseURL: String) {
         self.baseURL = baseURL

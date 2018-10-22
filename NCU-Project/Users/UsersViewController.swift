@@ -34,64 +34,23 @@ class UsersViewController: UIViewController {
     
     private func bindViewModel() {
         
-        getPostsButton.rx.tap
-            .bind { [weak self] in
-                
-                guard let strongSelf = self else {
-                    return
-                }
-                
-                let activityIndicator = ActivityIndicator()
-                
-                Observable.zip(UsersNetworkingAPI.getPosts(), UsersNetworkingAPI.getComments())
-                    .trackActivity(activityIndicator)
-                    .map { return ($0, $1) }
-                    .observeOn(MainScheduler.instance)
-                    .bind { [weak strongSelf] response in
-                        
-                        guard let strongerSelf = strongSelf else {
-                            return
-                        }
-                        
-                        strongerSelf.postsCountLabel.text = "Posts: " + String(response.0.count)
-                        strongerSelf.commentsCountLabel.text = "Comments: " + String(response.1.count)
-                        
-                    }.disposed(by: strongSelf.disposeBag)
-                
-            }.disposed(by: disposeBag)
+        let input = UsersViewModel.Input(postsButtonTap: getPostsButton.rx.tap, userButtonTap: getUserButton.rx.tap)
+        let output = viewModel.transform(input)
         
-        getUserButton.rx.tap
-            .bind { [weak self] in
-                
-                guard let strongSelf = self else {
-                    return
-                }
-                
-                let activityIndicator = ActivityIndicator()
-                
-                UsersNetworkingAPI.getUsers()
-                    .trackActivity(activityIndicator)
-                    .observeOn(MainScheduler.instance)
-                    .flatMap { [weak self] users -> Observable<[Post]> in
-                        
-                        let randomUser = users.randomElement()!
-                        self?.userIDLabel.text = "User ID:" + String(randomUser.id)
-                        
-                        return UsersNetworkingAPI.getPosts(for: randomUser.id)
-                        
-                    }
-                    .observeOn(MainScheduler.instance)
-                    .map { [weak self] posts in
-                        
-                        guard let strongSelf = self else {
-                            return
-                        }
-                        
-                        strongSelf.userPostsCountLabel.text = "Post Count: " + String(posts.count)
-                        
-                    }.subscribe()
-                    .disposed(by: strongSelf.disposeBag)
-                
-            }.disposed(by: disposeBag)
+        output.postsCount.bind { [weak self] count in
+            self?.postsCountLabel.text =  "Posts: " + String(count)
+        }.disposed(by: disposeBag)
+        
+        output.commentsCount.bind { [weak self] count in
+            self?.commentsCountLabel.text =  "Comments: " + String(count)
+        }.disposed(by: disposeBag)
+        
+        output.userID.bind { [weak self] userID in
+            self?.userIDLabel.text = "User ID: " + String(userID)
+        }.disposed(by: disposeBag)
+        
+        output.userPostCount.bind { [weak self] postCount in
+            self?.userPostsCountLabel.text = "Post Count: " + String(postCount)
+        }.disposed(by: disposeBag)
     }
 }
