@@ -28,6 +28,17 @@ final class UsersNetworkingAPI: BaseNetworkingAPI {
         }
     }
     
+    static func getPosts(for userID: Int) -> Observable<[Post]> {
+        
+        var urlRequest = baseURL.urlRequest(for: posts)
+        urlRequest.addValue("\(userID)", forHTTPHeaderField: "id")
+        
+        return URLSession.shared.rx.data(request: urlRequest)
+            .map { response -> [Post] in
+                return try JSONDecoder().decode([Post].self, from: response)
+        }
+    }
+    
     static func getComments() -> Observable<[Comment]> {
         
         let urlRequest = baseURL.urlRequest(for: comments)

@@ -53,10 +53,44 @@ class UsersViewController: UIViewController {
                             return
                         }
                         
-                        strongerSelf.postsCountLabel.text = "Posts: %@" + String(response.0.count)
-                        strongerSelf.commentsCountLabel.text = "Comments: %@" + String(response.1.count)
+                        strongerSelf.postsCountLabel.text = "Posts: " + String(response.0.count)
+                        strongerSelf.commentsCountLabel.text = "Comments: " + String(response.1.count)
                         
                     }.disposed(by: strongSelf.disposeBag)
+                
+            }.disposed(by: disposeBag)
+        
+        getUserButton.rx.tap
+            .bind { [weak self] in
+                
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                let activityIndicator = ActivityIndicator()
+                
+                UsersNetworkingAPI.getUsers()
+                    .trackActivity(activityIndicator)
+                    .observeOn(MainScheduler.instance)
+                    .flatMap { [weak self] users -> Observable<[Post]> in
+                        
+                        let randomUser = users.randomElement()!
+                        self?.userIDLabel.text = "User ID:" + String(randomUser.id)
+                        
+                        return UsersNetworkingAPI.getPosts(for: randomUser.id)
+                        
+                    }
+                    .observeOn(MainScheduler.instance)
+                    .map { [weak self] posts in
+                        
+                        guard let strongSelf = self else {
+                            return
+                        }
+                        
+                        strongSelf.userPostsCountLabel.text = "Post Count: " + String(posts.count)
+                        
+                    }.subscribe()
+                    .disposed(by: strongSelf.disposeBag)
                 
             }.disposed(by: disposeBag)
     }
