@@ -13,17 +13,18 @@ import RxCocoa
 
 protocol BaseNetworkingAPI {
     static var baseURL: BaseURL { get }
+    associatedtype Endpoints
 }
 
 final class BaseURL {
     
-    private let baseURL: String
+    private let urlString: String
     
-    init(_ baseURL: String) {
-        self.baseURL = baseURL
+    init(_ urlString: String) {
+        self.urlString = urlString
     }
     
-    func createURLComponents(endpoint: String, components: [String : String]) -> URL {
+    func url(for endpoint: String, from components: [String : String]) -> URL {
         
         var urlComponents = URLComponents(string: endpoint)!
         
@@ -38,11 +39,7 @@ final class BaseURL {
         return urlComponents.url!
     }
     
-    func urlString(for endpoint: String) -> String {
-        return baseURL + endpoint
-    }
-    
     func urlRequest(for endpoint: String) -> URLRequest {
-        return URLRequest(url: URL(string: baseURL + endpoint)!)
+        return URLRequest(url: URL(string: urlString + endpoint)!)
     }
 }

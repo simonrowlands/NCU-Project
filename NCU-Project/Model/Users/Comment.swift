@@ -18,7 +18,7 @@ struct Comment {
 
 extension Comment: Decodable {
     
-    enum CommentKeys: String, CodingKey {
+    private enum Keys: String, CodingKey {
         case id
         case postID = "postId"
         case name
@@ -28,7 +28,7 @@ extension Comment: Decodable {
     
     init(from decoder: Decoder) throws {
         
-        let container = try decoder.container(keyedBy: CommentKeys.self)
+        let container = try decoder.container(keyedBy: Keys.self)
         
         let id: Int = try container.decode(Int.self, forKey: .id)
         let postID: Int = try container.decode(Int.self, forKey: .postID)

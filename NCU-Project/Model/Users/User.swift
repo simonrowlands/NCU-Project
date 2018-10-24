@@ -17,7 +17,7 @@ struct User {
 
 extension User: Decodable {
     
-    enum UserKeys: String, CodingKey {
+    private enum Keys: String, CodingKey {
         case id
         case name
         case username
@@ -26,7 +26,7 @@ extension User: Decodable {
     
     init(from decoder: Decoder) throws {
         
-        let container = try decoder.container(keyedBy: UserKeys.self)
+        let container = try decoder.container(keyedBy: Keys.self)
         
         let id: Int = try container.decode(Int.self, forKey: .id)
         let name: String = try container.decode(String.self, forKey: .name)

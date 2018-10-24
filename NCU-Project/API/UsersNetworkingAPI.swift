@@ -12,15 +12,17 @@ import RxSwift
 
 final class UsersNetworkingAPI: BaseNetworkingAPI {
     
-    static var baseURL = BaseURL("https://jsonplaceholder.typicode.com")
+    static let baseURL = BaseURL("https://jsonplaceholder.typicode.com")
     
-    static var posts = "/posts"
-    static var comments = "/comments"
-    static var users = "/users"
+    enum Endpoints: String {
+        case posts = "/posts"
+        case comments = "/comments"
+        case users = "/users"
+    }
     
     static func getPosts() -> Observable<[Post]> {
         
-        let urlRequest = baseURL.urlRequest(for: posts)
+        let urlRequest = baseURL.urlRequest(for: Endpoints.posts.rawValue)
         
         return URLSession.shared.rx.data(request: urlRequest)
             .map { response -> [Post] in
@@ -30,9 +32,11 @@ final class UsersNetworkingAPI: BaseNetworkingAPI {
     
     static func getPosts(for userID: Int) -> Observable<[Post]> {
         
-        let url = baseURL.createURLComponents(endpoint: posts, components: ["userId" : String(userID)]) // This is done differently as we're passing in a urlQuery
+        var urlRequest = baseURL.urlRequest(for: Endpoints.posts.rawValue)
         
-        return URLSession.shared.rx.data(request: URLRequest(url: url))
+        urlRequest.url = baseURL.url(for: Endpoints.posts.rawValue, from: ["userId" : String(userID)]) // This is done differently as we're passing in a urlQuery
+        
+        return URLSession.shared.rx.data(request: urlRequest)
             .map { response -> [Post] in
                 return try JSONDecoder().decode([Post].self, from: response)
         }
@@ -40,7 +44,7 @@ final class UsersNetworkingAPI: BaseNetworkingAPI {
     
     static func getComments() -> Observable<[Comment]> {
         
-        let urlRequest = baseURL.urlRequest(for: comments)
+        let urlRequest = baseURL.urlRequest(for: Endpoints.comments.rawValue)
         
         return URLSession.shared.rx.data(request: urlRequest)
             .map { response -> [Comment] in
@@ -50,7 +54,7 @@ final class UsersNetworkingAPI: BaseNetworkingAPI {
     
     static func getUsers() -> Observable<[User]> {
         
-        let urlRequest = baseURL.urlRequest(for: users)
+        let urlRequest = baseURL.urlRequest(for: Endpoints.users.rawValue)
         
         return URLSession.shared.rx.data(request: urlRequest)
             .map { response -> [User] in

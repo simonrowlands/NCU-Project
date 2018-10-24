@@ -18,7 +18,7 @@ struct Post {
 
 extension Post: Decodable {
     
-    enum PostKeys: String, CodingKey {
+    private enum Keys: String, CodingKey {
         case id
         case userID = "userId"
         case title
@@ -27,7 +27,7 @@ extension Post: Decodable {
     
     init(from decoder: Decoder) throws {
         
-        let container = try decoder.container(keyedBy: PostKeys.self)
+        let container = try decoder.container(keyedBy: Keys.self)
         
         let id: Int = try container.decode(Int.self, forKey: .id)
         let userID: Int = try container.decode(Int.self, forKey: .userID)
