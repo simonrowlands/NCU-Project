@@ -10,17 +10,13 @@ import Foundation
 
 import RxSwift
 
-final class DogsNetworkingAPI: BaseNetworkingAPI {
+final class DogsNetworkingAPI: Networkable {
     
-    static var baseURL = BaseURL("https://dog.ceo/api")
-    
-    enum Endpoints: String {
-        case allDogsList = "/breeds/list/all"
-    }
+    static let baseURL = BaseURL("https://dog.ceo/api")
     
     static func getDogs() -> Observable<[Dog]> {
         
-        let urlRequest = baseURL.urlRequest(for: Endpoints.allDogsList.rawValue)
+        let urlRequest = baseURL.urlRequest(for: Endpoints.Dog.all)
         
         return URLSession.shared.rx.json(request: urlRequest)
             .map { anyDict -> [Dog] in

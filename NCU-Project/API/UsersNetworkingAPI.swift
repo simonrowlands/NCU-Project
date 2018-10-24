@@ -10,19 +10,13 @@ import Foundation
 
 import RxSwift
 
-final class UsersNetworkingAPI: BaseNetworkingAPI {
+final class UsersNetworkingAPI: Networkable {
     
     static let baseURL = BaseURL("https://jsonplaceholder.typicode.com")
     
-    enum Endpoints: String {
-        case posts = "/posts"
-        case comments = "/comments"
-        case users = "/users"
-    }
-    
     static func getPosts() -> Observable<[Post]> {
         
-        let urlRequest = baseURL.urlRequest(for: Endpoints.posts.rawValue)
+        let urlRequest = baseURL.urlRequest(for: Endpoints.User.posts)
         
         return URLSession.shared.rx.data(request: urlRequest)
             .map { response -> [Post] in
@@ -32,11 +26,10 @@ final class UsersNetworkingAPI: BaseNetworkingAPI {
     
     static func getPosts(for userID: Int) -> Observable<[Post]> {
         
-        var urlRequest = baseURL.urlRequest(for: Endpoints.posts.rawValue)
+        let urlString = baseURL.urlString(for: Endpoints.User.posts)
+        let url = baseURL.url(for: urlString, from: ["userId" : String(userID)])
         
-        urlRequest.url = baseURL.url(for: Endpoints.posts.rawValue, from: ["userId" : String(userID)]) // This is done differently as we're passing in a urlQuery
-        
-        return URLSession.shared.rx.data(request: urlRequest)
+        return URLSession.shared.rx.data(request: URLRequest(url: url))
             .map { response -> [Post] in
                 return try JSONDecoder().decode([Post].self, from: response)
         }
@@ -44,7 +37,7 @@ final class UsersNetworkingAPI: BaseNetworkingAPI {
     
     static func getComments() -> Observable<[Comment]> {
         
-        let urlRequest = baseURL.urlRequest(for: Endpoints.comments.rawValue)
+        let urlRequest = baseURL.urlRequest(for: Endpoints.User.comments)
         
         return URLSession.shared.rx.data(request: urlRequest)
             .map { response -> [Comment] in
@@ -54,7 +47,7 @@ final class UsersNetworkingAPI: BaseNetworkingAPI {
     
     static func getUsers() -> Observable<[User]> {
         
-        let urlRequest = baseURL.urlRequest(for: Endpoints.users.rawValue)
+        let urlRequest = baseURL.urlRequest(for: Endpoints.User.users)
         
         return URLSession.shared.rx.data(request: urlRequest)
             .map { response -> [User] in

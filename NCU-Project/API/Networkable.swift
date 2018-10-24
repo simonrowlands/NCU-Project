@@ -11,9 +11,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol BaseNetworkingAPI {
+protocol Networkable {
     static var baseURL: BaseURL { get }
-    associatedtype Endpoints
 }
 
 final class BaseURL {
@@ -37,6 +36,10 @@ final class BaseURL {
         urlComponents.queryItems = queryItems
         
         return urlComponents.url!
+    }
+    
+    func urlString(for endpoint: String) -> String {
+        return urlString + endpoint
     }
     
     func urlRequest(for endpoint: String) -> URLRequest {
