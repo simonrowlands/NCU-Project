@@ -30,7 +30,7 @@ final class DogsViewModel: ViewModelType {
         let dogs = input.didLoad
             .take(1)
             .flatMap {
-                 NetworkingAPI.getDogs()
+                 DogsNetworkingAPI.getDogs()
                     .trackActivity(activityIndicator)
             }
             .share()

@@ -11,18 +11,27 @@
 		669D5911FEAB763F76BFCB87 /* Pods_NCU_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99C04460FC751D3FE0A9504 /* Pods_NCU_ProjectTests.framework */; };
 		F413DF482176173D00422B6F /* Dogs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F413DF472176173D00422B6F /* Dogs.storyboard */; };
 		F43F04BF44F6A712481E0BD5 /* Pods_NCU_ProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD522E2A3F3C8771B7153A7 /* Pods_NCU_ProjectUITests.framework */; };
+		F443DE05217DC88A00FE6A11 /* DogsNetworkingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443DE02217DC88A00FE6A11 /* DogsNetworkingAPI.swift */; };
+		F443DE06217DC88A00FE6A11 /* UsersNetworkingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443DE03217DC88A00FE6A11 /* UsersNetworkingAPI.swift */; };
+		F443DE07217DC88A00FE6A11 /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443DE04217DC88A00FE6A11 /* Networkable.swift */; };
+		F443DE0F217DC89500FE6A11 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443DE0A217DC89500FE6A11 /* Dog.swift */; };
+		F443DE10217DC89500FE6A11 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443DE0C217DC89500FE6A11 /* Comment.swift */; };
+		F443DE11217DC89500FE6A11 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443DE0D217DC89500FE6A11 /* User.swift */; };
+		F443DE12217DC89500FE6A11 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443DE0E217DC89500FE6A11 /* Post.swift */; };
+		F443DE17217DC9F000FE6A11 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443DE14217DC9F000FE6A11 /* UsersViewController.swift */; };
+		F443DE18217DC9F000FE6A11 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443DE15217DC9F000FE6A11 /* UsersViewModel.swift */; };
+		F443DE19217DC9F000FE6A11 /* Users.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F443DE16217DC9F000FE6A11 /* Users.storyboard */; };
 		F4551648217A090F002B87F1 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4551647217A090F002B87F1 /* ActivityIndicator.swift */; };
 		F4551653217A111B002B87F1 /* ReactiveExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4551652217A111B002B87F1 /* ReactiveExtensions.swift */; };
+		F4B8FBAF2180CB3800E6CAA5 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B8FBAE2180CB3800E6CAA5 /* Endpoints.swift */; };
 		F4EFCE7D2174D38400E6E321 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCE7C2174D38400E6E321 /* AppDelegate.swift */; };
 		F4EFCE822174D38400E6E321 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4EFCE802174D38400E6E321 /* Main.storyboard */; };
 		F4EFCE842174D38500E6E321 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4EFCE832174D38500E6E321 /* Assets.xcassets */; };
 		F4EFCE872174D38500E6E321 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4EFCE852174D38500E6E321 /* LaunchScreen.storyboard */; };
 		F4EFCE922174D38500E6E321 /* NCU_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCE912174D38500E6E321 /* NCU_ProjectTests.swift */; };
 		F4EFCE9D2174D38500E6E321 /* NCU_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCE9C2174D38500E6E321 /* NCU_ProjectUITests.swift */; };
-		F4EFCEC62175EDEB00E6E321 /* NetworkingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCEC52175EDEA00E6E321 /* NetworkingAPI.swift */; };
 		F4EFCECE2175EDF400E6E321 /* DogsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCEC82175EDF400E6E321 /* DogsViewModel.swift */; };
 		F4EFCECF2175EDF400E6E321 /* DogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCEC92175EDF400E6E321 /* DogsViewController.swift */; };
-		F4EFCED02175EDF400E6E321 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCECB2175EDF400E6E321 /* Dog.swift */; };
 		F4EFCED12175EDF400E6E321 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFCECD2175EDF400E6E321 /* ViewModelType.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,8 +61,19 @@
 		ED1C6695D1A76CAB0A60BFC7 /* Pods-NCU-ProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCU-ProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NCU-ProjectUITests/Pods-NCU-ProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F2C646443E5019C0F29D3672 /* Pods-NCU-ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCU-ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NCU-ProjectTests/Pods-NCU-ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		F413DF472176173D00422B6F /* Dogs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dogs.storyboard; sourceTree = "<group>"; };
+		F443DE02217DC88A00FE6A11 /* DogsNetworkingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogsNetworkingAPI.swift; sourceTree = "<group>"; };
+		F443DE03217DC88A00FE6A11 /* UsersNetworkingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersNetworkingAPI.swift; sourceTree = "<group>"; };
+		F443DE04217DC88A00FE6A11 /* Networkable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
+		F443DE0A217DC89500FE6A11 /* Dog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		F443DE0C217DC89500FE6A11 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		F443DE0D217DC89500FE6A11 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F443DE0E217DC89500FE6A11 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		F443DE14217DC9F000FE6A11 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		F443DE15217DC9F000FE6A11 /* UsersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		F443DE16217DC9F000FE6A11 /* Users.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Users.storyboard; sourceTree = "<group>"; };
 		F4551647217A090F002B87F1 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		F4551652217A111B002B87F1 /* ReactiveExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveExtensions.swift; sourceTree = "<group>"; };
+		F4B8FBAE2180CB3800E6CAA5 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		F4EFCE792174D38400E6E321 /* NCU-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NCU-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EFCE7C2174D38400E6E321 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4EFCE812174D38400E6E321 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,10 +86,8 @@
 		F4EFCE982174D38500E6E321 /* NCU-ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NCU-ProjectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EFCE9C2174D38500E6E321 /* NCU_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCU_ProjectUITests.swift; sourceTree = "<group>"; };
 		F4EFCE9E2174D38500E6E321 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F4EFCEC52175EDEA00E6E321 /* NetworkingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingAPI.swift; sourceTree = "<group>"; };
 		F4EFCEC82175EDF400E6E321 /* DogsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogsViewModel.swift; sourceTree = "<group>"; };
 		F4EFCEC92175EDF400E6E321 /* DogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogsViewController.swift; sourceTree = "<group>"; };
-		F4EFCECB2175EDF400E6E321 /* Dog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		F4EFCECD2175EDF400E6E321 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		F638A087395153926F4A05E8 /* Pods-NCU-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCU-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-NCU-Project/Pods-NCU-Project.release.xcconfig"; sourceTree = "<group>"; };
 		F744FA04C85B4F4832F603CC /* Pods-NCU-ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCU-ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NCU-ProjectUITests/Pods-NCU-ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +134,54 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F443DE01217DC88A00FE6A11 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F443DE04217DC88A00FE6A11 /* Networkable.swift */,
+				F4B8FBAE2180CB3800E6CAA5 /* Endpoints.swift */,
+				F443DE02217DC88A00FE6A11 /* DogsNetworkingAPI.swift */,
+				F443DE03217DC88A00FE6A11 /* UsersNetworkingAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F443DE08217DC89500FE6A11 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F443DE09217DC89500FE6A11 /* Dogs */,
+				F443DE0B217DC89500FE6A11 /* Users */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F443DE09217DC89500FE6A11 /* Dogs */ = {
+			isa = PBXGroup;
+			children = (
+				F443DE0A217DC89500FE6A11 /* Dog.swift */,
+			);
+			path = Dogs;
+			sourceTree = "<group>";
+		};
+		F443DE0B217DC89500FE6A11 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				F443DE0C217DC89500FE6A11 /* Comment.swift */,
+				F443DE0D217DC89500FE6A11 /* User.swift */,
+				F443DE0E217DC89500FE6A11 /* Post.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		F443DE13217DC9F000FE6A11 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				F443DE16217DC9F000FE6A11 /* Users.storyboard */,
+				F443DE15217DC9F000FE6A11 /* UsersViewModel.swift */,
+				F443DE14217DC9F000FE6A11 /* UsersViewController.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
 		F4EFCE702174D38400E6E321 = {
 			isa = PBXGroup;
 			children = (
@@ -143,10 +209,11 @@
 			children = (
 				F4EFCE7C2174D38400E6E321 /* AppDelegate.swift */,
 				F4EFCEAF2174D7A900E6E321 /* Main */,
-				F4EFCEC42175EDEA00E6E321 /* API */,
+				F443DE01217DC88A00FE6A11 /* API */,
 				F4EFCEC72175EDF400E6E321 /* Dogs */,
+				F443DE13217DC9F000FE6A11 /* Users */,
 				F4EFCECC2175EDF400E6E321 /* Library */,
-				F4EFCECA2175EDF400E6E321 /* Model */,
+				F443DE08217DC89500FE6A11 /* Model */,
 				F4EFCEB12174D7C100E6E321 /* View */,
 				F4EFCEB22174D7D300E6E321 /* SupportingFiles */,
 			);
@@ -196,14 +263,6 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		F4EFCEC42175EDEA00E6E321 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				F4EFCEC52175EDEA00E6E321 /* NetworkingAPI.swift */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
 		F4EFCEC72175EDF400E6E321 /* Dogs */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,14 +271,6 @@
 				F4EFCEC92175EDF400E6E321 /* DogsViewController.swift */,
 			);
 			path = Dogs;
-			sourceTree = "<group>";
-		};
-		F4EFCECA2175EDF400E6E321 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F4EFCECB2175EDF400E6E321 /* Dog.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		F4EFCECC2175EDF400E6E321 /* Library */ = {
@@ -352,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4EFCE872174D38500E6E321 /* LaunchScreen.storyboard in Resources */,
+				F443DE19217DC9F000FE6A11 /* Users.storyboard in Resources */,
 				F4EFCE842174D38500E6E321 /* Assets.xcassets in Resources */,
 				F4EFCE822174D38400E6E321 /* Main.storyboard in Resources */,
 				F413DF482176173D00422B6F /* Dogs.storyboard in Resources */,
@@ -490,13 +542,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4EFCECF2175EDF400E6E321 /* DogsViewController.swift in Sources */,
-				F4EFCED02175EDF400E6E321 /* Dog.swift in Sources */,
+				F443DE05217DC88A00FE6A11 /* DogsNetworkingAPI.swift in Sources */,
 				F4551653217A111B002B87F1 /* ReactiveExtensions.swift in Sources */,
-				F4EFCEC62175EDEB00E6E321 /* NetworkingAPI.swift in Sources */,
+				F443DE17217DC9F000FE6A11 /* UsersViewController.swift in Sources */,
+				F443DE18217DC9F000FE6A11 /* UsersViewModel.swift in Sources */,
 				F4EFCE7D2174D38400E6E321 /* AppDelegate.swift in Sources */,
+				F443DE12217DC89500FE6A11 /* Post.swift in Sources */,
+				F443DE06217DC88A00FE6A11 /* UsersNetworkingAPI.swift in Sources */,
 				F4551648217A090F002B87F1 /* ActivityIndicator.swift in Sources */,
 				F4EFCECE2175EDF400E6E321 /* DogsViewModel.swift in Sources */,
 				F4EFCED12175EDF400E6E321 /* ViewModelType.swift in Sources */,
+				F443DE11217DC89500FE6A11 /* User.swift in Sources */,
+				F443DE0F217DC89500FE6A11 /* Dog.swift in Sources */,
+				F443DE10217DC89500FE6A11 /* Comment.swift in Sources */,
+				F4B8FBAF2180CB3800E6CAA5 /* Endpoints.swift in Sources */,
+				F443DE07217DC88A00FE6A11 /* Networkable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
